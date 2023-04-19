@@ -1,6 +1,9 @@
-.nav > .container-fluid .container-sm > .container-md{
+nav.container-fluid.container-sm.container-md{
     justify-content: none;
 }
+
+
+
 
 .img-nav {
     width: 40px;
@@ -29,5 +32,9 @@
 @media (min-width: 992px) {
     .login-menu{
         margin-inline: 1rem;
+    }
+
+    ul {
+        padding-left: 3.5rem;
     }
   }

@@ -10,6 +10,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment.development';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { FormularioTarjetaComponent } from './components/carrito/formulario-tarjeta/formulario-tarjeta.component';
+import { FormularioEnvioComponent } from './components/carrito/formulario-envio/formulario-envio.component';
+import { FormularioComponent } from './components/lista-productos/formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ListaProductosComponent } from './components/lista-productos/lista-prod
     NosotrasComponent,
     HomeComponent,
     FooterComponent,
-    ListaProductosComponent
+    ListaProductosComponent,
+    CarritoComponent,
+    FormularioTarjetaComponent,
+    FormularioEnvioComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,

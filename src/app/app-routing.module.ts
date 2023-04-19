@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NosotrasComponent } from './components/nosotras/nosotras.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+import { FormularioEnvioComponent } from './components/carrito/formulario-envio/formulario-envio.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,13 @@ const routes: Routes = [
     path: 'nosotras', component: NosotrasComponent,
   },
   {
-    path: 'lista de productos', component: ListaProductosComponent, canActivate: [AuthGuard],
+    path: 'lista-productos', component: ListaProductosComponent, canActivate: [AuthGuard], 
+  },
+  {
+    path: "envio" , component: FormularioEnvioComponent,
+  },
+  {
+    path: "envio" , component: FormularioEnvioComponent,
   }
 ];
 
