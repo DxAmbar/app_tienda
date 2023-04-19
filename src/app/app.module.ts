@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment.development';
+import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { environment } from 'src/environments/environment.development';
     HeaderComponent,
     NosotrasComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ListaProductosComponent
   ],
   imports: [
     BrowserModule,
@@ -33,5 +35,3 @@ import { environment } from 'src/environments/environment.development';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-git config --global user.email "mmoralbr@emeal.nttdata.com"
-git config --global user.name "Misdely Morales"
