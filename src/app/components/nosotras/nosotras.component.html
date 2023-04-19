@@ -1,0 +1,47 @@
+<div class="container my-4">
+    <div class="row bg-dark text-warning rounded">
+        <div class="col-md-6">
+            <h1 class="text-center align-middle">Programadoras de la tiendita</h1>
+        </div>
+    </div>
+
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="col mb-5" *ngFor="let programadora of listaProgramadoras">
+            <div class="card h-100">
+                <img class="card-img-left" src="{{programadora.image}}" alt="{{programadora.name}}">
+                <div class="card-body">
+                    <h4 class="card-title">{{programadora.name | uppercase }}</h4>
+                    <h5 class="card-title">{{programadora.description | titlecase}}</h5>
+                    <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, aliquam.</p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text fst-italic">Más info: <a href="{{programadora.wiki}}" target="_blank">Wiki</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row no-gutters col mb-5" *ngFor="let programadora of listaProgramadoras">
+            <div class="col mb-5">
+                <img class="card-img" src="{{programadora.image}}" alt="{{programadora.name}}"> 
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">{{programadora.name | uppercase }}</h4>
+                    <h5 class="card-title">{{programadora.description | titlecase}}</h5>
+                    <p class="card-text">{{programadora.hobby}}</p>
+                </div>
+              <!--  <div class="card-footer">
+                    <p class="card-text fst-italic">Más info: 
+                        <a href="{{programadora.wiki}}" target="_blank">Wiki</a>
+                    </p>
+                </div> -->
+            </div>
+        </div>    
+    </div>
+</div> 
+

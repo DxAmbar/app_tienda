@@ -3,16 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NosotrasComponent } from './components/nosotras/nosotras.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment.development';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    NosotrasComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule.forRoot({
+      domain: 'dev-h5nqf44vg6znt7wf.us.auth0.com',
+      clientId: 'sH6FwfKTlvkDKnLDremDEJPYZ7qYMEMs',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+git config --global user.email "mmoralbr@emeal.nttdata.com"
+git config --global user.name "Misdely Morales"
