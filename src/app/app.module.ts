@@ -14,6 +14,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { FormularioTarjetaComponent } from './components/carrito/formulario-tarjeta/formulario-tarjeta.component';
 import { FormularioEnvioComponent } from './components/carrito/formulario-envio/formulario-envio.component';
 import { FormularioComponent } from './components/lista-productos/formulario/formulario.component';
+import { Page404Component } from './components/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormularioComponent } from './components/lista-productos/formulario/for
     CarritoComponent,
     FormularioTarjetaComponent,
     FormularioEnvioComponent,
-    FormularioComponent
+    FormularioComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
