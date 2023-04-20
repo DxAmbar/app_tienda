@@ -14,7 +14,9 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { FormularioTarjetaComponent } from './components/carrito/formulario-tarjeta/formulario-tarjeta.component';
 import { FormularioEnvioComponent } from './components/carrito/formulario-envio/formulario-envio.component';
 import { FormularioComponent } from './components/lista-productos/formulario/formulario.component';
-import { Page404Component } from './components/page404/page404.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,15 @@ import { Page404Component } from './components/page404/page404.component';
     CarritoComponent,
     FormularioTarjetaComponent,
     FormularioEnvioComponent,
-    FormularioComponent,
-    Page404Component
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
     AuthModule.forRoot({
       domain: 'dev-h5nqf44vg6znt7wf.us.auth0.com',
       clientId: 'sH6FwfKTlvkDKnLDremDEJPYZ7qYMEMs',
