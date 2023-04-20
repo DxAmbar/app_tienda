@@ -36,6 +36,7 @@ const routes: Routes = [
     path: "envio" , component: FormularioEnvioComponent,
   },
 
+
   {
     path: "reloj" , component: RelojComponent,
   },
@@ -47,6 +48,7 @@ const routes: Routes = [
   },
   {
     path: '**', redirectTo: '404',
+
   }
 ];
 

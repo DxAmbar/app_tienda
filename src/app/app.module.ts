@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CarritoComponent,
     FormularioTarjetaComponent,
     FormularioEnvioComponent,
-    FormularioComponent
+    FormularioComponent,
+    RelojComponent
   ],
   imports: [
     BrowserModule,
