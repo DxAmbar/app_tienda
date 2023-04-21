@@ -4,8 +4,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NosotrasComponent } from './components/nosotras/nosotras.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+import { CarritoComponent } from './components/carrito/carrito.component'
 import { FormularioComponent } from './components/lista-productos/formulario/formulario.component';
 import { FormularioEnvioComponent } from './components/carrito/formulario-envio/formulario-envio.component';
+import { FormularioTarjetaComponent } from './components/carrito/formulario-tarjeta/formulario-tarjeta.component';
 import { Page404Component } from './components/page404/page404.component';
 import { RelojComponent } from './components/reloj/reloj.component';
 
@@ -30,13 +32,14 @@ const routes: Routes = [
     path: 'lista-productos/formulario', component: FormularioComponent,
   },
   {
-    path: "envio" , component: FormularioEnvioComponent,
+    path: 'carrito', component: CarritoComponent,
   },
   {
-    path: "envio" , component: FormularioEnvioComponent,
+    path: 'carrito/envio' , component: FormularioEnvioComponent,
   },
-
-
+  {
+    path: 'carrito/tarjeta', component: FormularioTarjetaComponent,
+  },
   {
     path: "reloj" , component: RelojComponent,
   },

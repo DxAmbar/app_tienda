@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError, map } from 'rxjs';
 import { Router } from '@angular/router';
-
 import Swal from 'sweetalert2';
 import { Productos } from './productos';
 
@@ -11,7 +10,7 @@ import { Productos } from './productos';
 })
 export class ListaProductosService {
 
-  private urlEndPoint: string = 'http://localhost:8088/api/v1/products'
+  private urlEndPoint: string = 'http://localhost:8080/api/products'
 
   private httpHeaders = new HttpHeaders({'content-type': 'application/json'})
 
@@ -31,9 +30,19 @@ export class ListaProductosService {
     
   }
 
-  // processProductResponse(resp: any){
-  //   const d
-  // }
+  getProduct(id: number): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
+      catchError(e => {
+        this.router.navigate([`/lista-productos`]);
+        console.error(e.error.mensaje);
+        Swal.fire(e.error.mensaje, e.error.error, 'error');
+        return throwError(() => {
+          const error: any = new Error(e.error.mensaje);
+          return error;
+        });
+      })
+    );
+  }
 
   createProduct(producto: Productos) : Observable<any> {
     return this.http.post(this.urlEndPoint, producto, { headers : this.httpHeaders}).pipe(
@@ -47,6 +56,32 @@ export class ListaProductosService {
         });
       })
     )
+  }
+
+  updateProduct(producto: Productos) : Observable<any> {
+    return this.http.put(`${this.urlEndPoint}/${producto.idProduct}`,producto, { headers : this.httpHeaders }).pipe(
+      catchError(e => {
+        console.error(e.error.mensaje);
+        Swal.fire(e.error.mensaje, e.error.error, 'error');
+        return throwError(() => {
+          const error: any = new Error(e.error.mensaje);
+          return error;
+        });
+      })
+    );
+  }
+
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.urlEndPoint}/${id}`,{ headers : this.httpHeaders}).pipe(
+      catchError(e => {
+        console.error(e.error.mensaje);
+        Swal.fire(e.error.mensaje, e.error.error, 'error');
+        return throwError(() => {
+          const error: any = new Error(e.error.mensaje);
+          return error;
+        });
+      })
+    );
   }
 
 }

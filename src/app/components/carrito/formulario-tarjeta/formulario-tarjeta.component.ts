@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-formulario-tarjeta',
   templateUrl: './formulario-tarjeta.component.html',
   styleUrls: ['./formulario-tarjeta.component.css']
 })
-export class FormularioTarjetaComponent {
+export class FormularioTarjetaComponent implements OnInit{
+  
+  ngOnInit(): void {}
 
 }

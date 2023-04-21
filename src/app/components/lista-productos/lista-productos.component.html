@@ -20,21 +20,21 @@
                 <tr class="text-center">
                     <th >ID</th>
                     <th >Nombre</th>
-                    <th >Precio</th>
-                    <th >Account</th>
                     <th >Categoria</th>
+                    <th >Precio</th>
+                    <th >Stock</th>
                     <th >Imagen</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let producto of productos">
-                    <td class="text-center">{{producto.id}}</td>
-                    <td class="text-center">{{producto.account}}</td>
+                    <td class="text-center">{{producto.idProduct}}</td>
                     <td class="text-center">{{producto.name}}</td>
-                    <td class="text-center">{{producto.picture | truncateStringPicture:10:''}}</td>
-                    <td class="text-center">{{producto.price | currency: 'CLP': 'symbol-narrow': '1.0'}}</td>
                     <td class="text-center">{{producto.category}}</td>
+                    <td class="text-center">{{producto.price | currency:'CLP':'symbol'}}</td>
+                    <td class="text-center">{{producto.stock}}</td>
+                    <td class="text-center">{{producto.picture | truncateStringPicture:10:''}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-6 text-center">
