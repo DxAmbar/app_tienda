@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPenSquare, faPlus, faTrashCan, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { ListaProductosService } from 'src/app/services/lista-productos.service';
 import { Productos } from 'src/app/services/productos';
 
@@ -12,7 +12,11 @@ export class ListaProductosComponent implements OnInit{
 
   @Input() productos : Productos[] = [];
   @Input() mensaje: string | undefined;
+
   faAddProduct = faPlus;
+  faExclamation = faTriangleExclamation;
+  faEditPerson = faPenSquare;
+  faDeletePerson = faTrashCan;
   
   constructor(private productoService: ListaProductosService) {}
 

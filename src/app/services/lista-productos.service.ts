@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,19 @@ export class ListaProductosService {
 
   private httpHeaders = new HttpHeaders({'content-type': 'application/json'})
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getProductos(): Observable<any>{
-    return this.http.get<any>(this.urlEndPoint);
+    return this.http.get<any>(this.urlEndPoint).pipe(
+      catchError(e => {
+        this.router.navigate([`/lista-productos`]);
+        console.error(e.error.mensaje);
+        return throwError( () => {
+          const error: any = new Error(e.error.mensaje);
+          return error;
+        });
+      })
+    );
     
   }
 }
