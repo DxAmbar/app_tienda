@@ -21,3 +21,11 @@ describe('RelojComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+  // Prueba que la función mostrarHora maneja el caso donde la variable hora es nula o indefinida.
+  it("test_mostrar_hora_handles_null_or_undefined_hora", () => {
+    const reloj = new RelojComponent();
+    reloj.hora = null;
+    reloj.mostrarHora();
+    expect(reloj.hora).not.toBeNull();
+});

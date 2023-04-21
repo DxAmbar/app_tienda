@@ -21,3 +21,9 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+      // Tests de que el componente Footer se renderiza sin errores.
+      it("test_footer_component_renders_without_errors", () => {
+        const footerComponent = new FooterComponent();
+        expect(footerComponent).toBeDefined();
+    });

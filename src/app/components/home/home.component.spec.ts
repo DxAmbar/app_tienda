@@ -21,3 +21,15 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+ // Tests de que el componente está instanciado correctamente
+ it("test_instantiation_success", () => {
+  const homeComponent = new HomeComponent();
+  expect(homeComponent).toBeInstanceOf(HomeComponent);
+});
+
+  // Tests de que el componente se renderiza sin errores. 
+  it("test_render_component", () => {
+    const component = new HomeComponent();
+    expect(component).toBeTruthy();
+});

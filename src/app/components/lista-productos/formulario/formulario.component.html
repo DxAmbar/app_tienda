@@ -60,7 +60,7 @@
                 <div class="form-group row mb-3">
                     <label for="picture" class="col-form-label col-sm-2 fw-bold">Imagen</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="picture" id="picture" formControlName="picture" [(ngModel)]="product.picture" [ngClass]="{'is-invalid' : submitted && f['picture'].errors}">
+                        <input type="text" class="form-control" name="picture" id="picture" formControlName="picture" [(ngModel)]="product.image" [ngClass]="{'is-invalid' : submitted && f['picture'].errors}">
                         <div *ngIf="submitted && f['picture'].errors" class="invalid-feedback">
                             <div *ngIf="f['picture'].errors['required']">Debes subir una imagen.</div>
                         </div>

@@ -1,1 +1,87 @@
-<p>formulario-tarjeta works!</p>
+<div class="container my-4">
+    <form [formGroup]="form">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">{{ titleCreate }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group row mb-3">
+                    <label for="nameClient" class="col-form-label col-sm-2 fw-bold">Nombre cliente tarjeta</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nameClient" id="nameClient" formControlName="nameClient" [ngClass]="{'is-invalid' : submitted && f['nameClient'].errors}">
+                        <div *ngIf="submitted && f['nameClient'].errors" class="invalid-feedback">
+                            <div *ngIf="f['nameClient'].errors['required']">Debes ingresar un nombre.</div>
+                            <div *ngIf="f['nameClient'].errors['minLength']">El nombre debe contener al menos 2 caracteres.</div>
+                            <div *ngIf="f['nameClient'].errors['maxLength']">El nombre ingresado excede el tamaño máximo permitido (50)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="typeCard" class="col-form-label col-sm-2 fw-bold">Tipo de tarjeta</label>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="typeCard" id="typeCard" formControlName="typeCard">
+                            <label for="debito" class="form-check-label">Débito</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="typeCard" id="typeCard" formControlName="typeCard">
+                            <label for="credito" class="form-check-label">Crédito</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="numberCard" class="col-form-label col-sm-2 fw-bold">Número de la tarjeta</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="numberCard" id="numberCard" formControlName="numberCard" [ngClass]="{'is-invalid' : submitted && f['numberCard'].errors}">
+                        <div *ngIf="submitted && f['numberCard'].errors" class="invalid-feedback">
+                            <div *ngIf="f['numberCard'].errors['required']">Debes ingresar el número de tarjeta.</div>
+                            <div *ngIf="f['numberCard'].errors['minLength']">El número de tarjeta debe contener al menos 13 caracteres.</div>
+                            <div *ngIf="f['numberCard'].errors['maxLength']">El número de tarjeta ingresado excede el largo máximo permitido (18)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="securityCode" class="col-form-label col-sm-2 fw-bold">Código de seguridad</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="securityCode" id="securityCode" formControlName="securityCode" [ngClass]="{'is-invalid' : submitted && f['securityCode'].errors}">
+                        <div *ngIf="submitted && f['securityCode'].errors" class="invalid-feedback">
+                            <div *ngIf="f['securityCode'].errors['required']">Debes ingresar el código de seguridad de la tarjeta.</div>
+                            <div *ngIf="f['securityCode'].errors['minLength']">El código de seguridad debe contener al menos 3 caracteres.</div>
+                            <div *ngIf="f['securityCode'].errors['maxLength']">El código de seguridad ingresado excede el largo máximo permitido (4)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="expirationMonth" class="col-form-label col-sm-2 fw-bold">Mes de expiración de la tarjeta</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="expirationMonth" id="expirationMonth" formControlName="expirationMonth" [ngClass]="{'is-invalid' : submitted && f['expirationMonth'].errors}">
+                        <div *ngIf="submitted && f['expirationMonth'].errors" class="invalid-feedback">
+                            <div *ngIf="f['expirationMonth'].errors['required']">Debes ingresar el mes de expiración de la tarjeta.</div>
+                            <div *ngIf="f['expirationMonth'].errors['minLength']">El mes de expiración de la tarjeta debe contener al menos 2 caracteres.</div>
+                            <div *ngIf="f['expirationMonth'].errors['maxLength']">El mes de expiración de la tarjeta ingresado excede el tamaño máximo permitido (2)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="expirationYear" class="col-form-label col-sm-2 fw-bold">Año de expiración de la tarjeta</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="expirationYear" id="expirationYear" formControlName="expirationYear" [ngClass]="{'is-invalid' : submitted && f['expirationYear'].errors}">
+                        <div *ngIf="submitted && f['expirationYear'].errors" class="invalid-feedback">
+                            <div *ngIf="f['expirationYear'].errors['required']">Debes ingresar el año de expiración de la tarjeta.</div>
+                            <div *ngIf="f['expirationYear'].errors['minLength']">El año de expiración de la tarjeta debe contener al menos 2 caracteres.</div>
+                            <div *ngIf="f['expirationYear'].errors['maxLength']">El año de expiración de la tarjeta ingresado excede el tamaño máximo permitido (2)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="form-group row text-center">
+                    <div class="col">
+                        <button type="button" (click)="saveData()" class="btn btn-lg btn-outline-primary m-2">Registrar</button>
+                        <button type="button" [routerLink]="['/carrito']" class="btn btn-lg btn-outline-info m-2">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -34,7 +34,7 @@
                     <td class="text-center">{{producto.category}}</td>
                     <td class="text-center">{{producto.price | currency:'CLP':'symbol'}}</td>
                     <td class="text-center">{{producto.stock}}</td>
-                    <td class="text-center">{{producto.picture | truncateStringPicture:10:''}}</td>
+                    <td class="text-center"><img [width]="50" [src]="producto.image" /></td>
                     <td>
                         <div class="row">
                             <div class="col-md-6 text-center">
