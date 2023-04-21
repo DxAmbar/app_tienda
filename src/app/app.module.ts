@@ -19,9 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RelojComponent } from './components/reloj/reloj.component';
 import { TruncateStringPicturePipe } from './pipes/truncate-string-picture.pipe';
-// import { registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es-CL';
 
-// registerLocaleData(localeES, 'es');
+
+registerLocaleData(localeES,'es-CL');
 
 @NgModule({
   declarations: [
