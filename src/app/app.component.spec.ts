@@ -33,3 +33,16 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('app_tienda app is running!');
   });
 });
+
+// Comprueba que la propiedad del título se puede actualizar correctamente. 
+it("test_title_updated_successfully", () => {
+  const app = new AppComponent();
+  app.title = 'new_title';
+  expect(app.title).toEqual('new_title');
+});
+
+// Comprueba que el tipo de propiedad del título es un String
+it("test_title_type", () => {
+  const app = new AppComponent();
+  expect(typeof app.title).toEqual('string');
+});

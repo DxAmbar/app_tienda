@@ -1,8 +1,8 @@
 export class Productos {
-    id : number = 0;
+    idProduct : number = 0;
     name : string = '';
+    category: string = '';
     price : number = 0;
-    account : number =0;
-    category : string = '';
-    picture : string = '';
+    stock : number = 0;
+    image : string = '';
 }

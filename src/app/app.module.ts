@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +18,13 @@ import { RelojComponent } from './components/reloj/reloj.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RelojComponent } from './components/reloj/reloj.component';
+import { TruncateStringPicturePipe } from './pipes/truncate-string-picture.pipe';
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es-CL';
 
+
+registerLocaleData(localeES,'es-CL');
 
 @NgModule({
   declarations: [
@@ -32,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormularioTarjetaComponent,
     FormularioEnvioComponent,
     FormularioComponent,
-    RelojComponent
+    RelojComponent,
+    TruncateStringPicturePipe
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       }
     }),
   ],
-  providers: [],
+  providers: [
+    {
+       provide: LOCALE_ID, useValue: 'es-CL'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
