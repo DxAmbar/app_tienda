@@ -4,6 +4,8 @@ import { Observable, catchError, throwError, map } from 'rxjs';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Productos } from './productos';
+import { CartItem } from './cartItem';
+import { Cart } from './cart';
 
 @Injectable({
   providedIn: 'root'
@@ -83,5 +85,19 @@ export class ListaProductosService {
       })
     );
   }
+
+  // addItem(cartItem: CartItem): Observable<any> {
+  //   return(`${this.urlEndPoint}/${Cart}`).pipe(
+  //     catchError(e => {
+  //       this.router.navigate([`/carrito`]);
+  //       console.error(e.error.mensaje);
+  //       Swal.fire(e.error.mensaje, e.error.error, 'error');
+  //       return throwError(() => {
+  //         const error: any = new Error(e.error.mensaje);
+  //         return error;
+  //       });
+  //     })
+  //   );
+  // }
 
 }

@@ -10,6 +10,7 @@ import { FormularioEnvioComponent } from './components/carrito/formulario-envio/
 import { FormularioTarjetaComponent } from './components/carrito/formulario-tarjeta/formulario-tarjeta.component';
 import { Page404Component } from './components/page404/page404.component';
 import { RelojComponent } from './components/reloj/reloj.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -43,9 +44,9 @@ const routes: Routes = [
   {
     path: "reloj" , component: RelojComponent,
   },
-
-  
-
+  {
+    path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]
+  },
   {
     path: '404', component: Page404Component, //Estos path de 404 siempre van al final
   },

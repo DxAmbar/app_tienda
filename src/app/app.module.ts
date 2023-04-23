@@ -8,7 +8,6 @@ import { NosotrasComponent } from './components/nosotras/nosotras.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthModule } from '@auth0/auth0-angular';
-import { environment } from 'src/environments/environment.development';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { FormularioTarjetaComponent } from './components/carrito/formulario-tarjeta/formulario-tarjeta.component';
@@ -21,6 +20,7 @@ import { RelojComponent } from './components/reloj/reloj.component';
 import { TruncateStringPicturePipe } from './pipes/truncate-string-picture.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es-CL';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 registerLocaleData(localeES,'es-CL');
@@ -38,7 +38,8 @@ registerLocaleData(localeES,'es-CL');
     FormularioEnvioComponent,
     FormularioComponent,
     RelojComponent,
-    TruncateStringPicturePipe
+    TruncateStringPicturePipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
