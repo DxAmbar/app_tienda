@@ -47,6 +47,7 @@ const routes: Routes = [
   {
     path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]
   },
+ 
   {
     path: '404', component: Page404Component, //Estos path de 404 siempre van al final
   },

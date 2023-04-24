@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-warning">
     <div class=" container-fluid">
 
-        <a class="navbar-brand" routerLink="home">
+        <a class="navbar-brand" [routerLink]="['/']">
             <img class="img-nav" src="../../../assets/img/superG4.svg" alt="">
 
         </a>
@@ -16,17 +16,17 @@
             <span>Super G4</span>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown li-categoria" routerLinkActive="active">
-                    <a class="nav-link dropdown-toggle" routerLink="#" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" routerLink="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Categorías
                     </a>
                     <ul class="dropdown-menu">
                         <li routerLinkActive="active">
-                            <a class="dropdown-item" routerLink="#">Despensa</a>
+                            <a class="dropdown-item" [routerLink]="['/home']" [queryParams]="{category:'despensa'}">Despensa</a>
                         </li>
-                        <li routerLinkActive="active"><a class="dropdown-item" routerLink="#">Limpieza</a>
+                        <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/home']" [queryParams]="{category:'limpieza'}">Limpieza</a>
                         </li>
-                        <li routerLinkActive="active"><a class="dropdown-item" routerLink="#">Colaciones</a>
+                        <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['/home']" [queryParams]="{category:'colación'}">Colaciones</a>
                         </li>
                     </ul>
                 </li>

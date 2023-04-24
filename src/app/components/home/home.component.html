@@ -45,23 +45,38 @@
         </button>
     </div>
 
-<!-- Tarjetasa productos (Grid) -->
+    <!-- Tarjetasa productos (Grid) -->
 
-    <div class="container p-5">
-        <div class="row ">
+    <!--<div class="card-group">
+        <div class="card ">
           <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card" style="width: 18rem" *ngFor="let producto of productos">
                 <img class="card-img-top" [src]="producto.image" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{producto.name}}</h5>
-                  <!-- <p class="card-text">Arroz Grano Largo Ancho 1 Kg</p> -->
+                   <p class="card-text">Arroz Grano Largo Ancho 1 Kg</p> 
                   <p class="card-text">{{producto.price | currency:'CLP':'symbol'}}</p>
                   <button type="button"  class="btn btn-primary" (click)="addToCart(producto)" ><i class="bi bi-cart-plus-fill">  Agregar al carrito</i></button>
                 </div>
               </div>
           </div>
-      </div>
+      </div> -->
 
-    
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2">
+            
+          <div class="card" style="width: 14rem" *ngFor="let producto of productos">
+                <img class="card-img-top" [src]="producto.image" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{producto.name}}</h5>
+                    <p class="card-text">{{producto.price | currency:'CLP':'symbol'}}</p>
+                    <button type="button" class="btn btn-primary" (click)="addToCart(producto)"><i
+                            class="bi bi-cart-plus-fill"> Agregar al carrito</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>

@@ -1,14 +1,17 @@
 import { DOCUMENT, Location } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { Productos } from 'src/app/services/productos';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-header', // ng-if-as
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
+  @Input() productos : Productos[] = [];
+  
   isAuthenticated: boolean = false;
   currentRoute: string = '';
   route: string = '';
@@ -36,5 +39,7 @@ export class HeaderComponent implements OnInit{
   logout(): void {
     this.auth.logout();
   }
+
+ 
 
 }

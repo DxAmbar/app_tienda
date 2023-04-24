@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListaProductosService } from 'src/app/services/lista-productos.service';
-//import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faSquareMinus, faSquarePlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-carrito',
@@ -8,9 +8,10 @@ import { ListaProductosService } from 'src/app/services/lista-productos.service'
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-
-  // faPlus = faPlus;
-  // faMinus = faMinus;
+  
+  faMinus = faSquareMinus;
+  faPlus = faSquarePlus;
+  faTrash = faTrash;
 
   myCart$ = this.productoService.myCart$
 
