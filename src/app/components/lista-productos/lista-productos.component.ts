@@ -3,6 +3,8 @@ import { faPenSquare, faPlus, faTrashCan, faTriangleExclamation } from '@fortawe
 import { ListaProductosService } from 'src/app/services/lista-productos.service';
 import { Productos } from 'src/app/services/productos';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-lista-productos',
   templateUrl: './lista-productos.component.html',
@@ -33,7 +35,47 @@ export class ListaProductosComponent implements OnInit{
         console.log(this.mensaje);
       }
     )
+  }
 
+  deleteProduct(product: Productos) : void {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success m-2',
+        cancelButton: 'btn btn-danger m-2'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Estás seguro?',
+      text: `¿Deseas eliminar el producto ${product.name}? Esta acción no se puede revertir`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar.',
+      cancelButtonText: '¡Me arrepiento!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productoService.deleteProduct(product.idProduct).subscribe(
+          response => {
+            this.productos = this.productos.filter(p => p != product)
+            swalWithBootstrapButtons.fire(
+              'Eliminado',
+              'El producto ha sido eiminado',
+              'success'
+            )
+          }
+        )
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel)
+      {
+        swalWithBootstrapButtons.fire(
+          'Acción cancelada',
+          'El producto sigue a la venta',
+          'error'
+        )
+      }
+    })
   }
 
 }

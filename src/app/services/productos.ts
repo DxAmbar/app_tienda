@@ -5,4 +5,5 @@ export class Productos {
     price : number = 0;
     stock : number = 0;
     image : string = '';
+    amount: number = 0;
 }

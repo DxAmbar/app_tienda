@@ -37,15 +37,15 @@
                     <td class="text-center"><img [width]="50" [src]="producto.image" /></td>
                     <td>
                         <div class="row">
-                            <div class="col-md-6 text-center">
-                                <button  class="btn btn-warning mb-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editar">
+                            <div class="col-md-6 text-center" routerLinkActive="active">
+                                <button routerLink="/lista-productos/formulario" class="btn btn-warning mb-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editar">
                                     <span class="fs-5">
                                         <fa-icon [icon]="faEditPerson"></fa-icon>
                                     </span>
                                 </button>
                             </div>
                             <div class="col-md-6 text-center">
-                                <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Eliminar">
+                                <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Eliminar" (click)="deleteProduct(producto)">
                                     <span class="fs-5">
                                         <fa-icon [icon]="faDeletePerson"></fa-icon>
                                     </span>
