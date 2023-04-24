@@ -1,1 +1,30 @@
-<p>carrito works!</p>
+<div class="productCart-wrapper">
+    <article class="productCart" *ngFor="let producto of myCart$ | async">
+        <div class="productCart-body">
+            <p>{{producto.name}}</p>
+            <div class="productCart-body-info">
+                <p>$ {{producto.price}}</p>
+                <p>{{producto.amount}}</p>
+            </div>
+        </div>
+        <div class="productCart-total">
+            <p>${{totalProducto(producto.price, producto.amount)}}</p>
+        </div>
+        <div class="productCart-buttons">
+            <div class="productCart-buttons-operators">
+                <i class="fa-solid fa-minus"></i>
+                <button class="cart-btn minus" (click)="updateUnits('minus', producto.idProduct)"></button>
+                <span>{{producto.amount}}</span>
+                <button class="cart-btn add" (click)="updateUnits('add', producto.idProduct)"></button>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <button class="cart-btn" (click)="deleteProducto(producto.idProduct)">Borrar</button>
+            <i class="fa-solid fa-trash"></i>
+        </div>
+    </article>
+    <div class="cartTotal">
+        <p class="cartTotal-total">Total: $ {{totalCart()}}</p>
+    </div>
+    <button class="cart-btn">Seguir comprando</button>
+    <button class="cart-btn" routerLink="/carrito/envio">Pagar</button>
+</div>

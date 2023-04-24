@@ -133,5 +133,20 @@ export class FormularioComponent implements OnInit{
       }
     );
   }
+/*
+  onFileSelect(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
 
+  handleReaderLoaded(readerEvt) {
+    const binaryString = readerEvt.target.result;
+    const base64textString = btoa(binaryString);
+    console.log(base64textString);
+  }
+*/
 }

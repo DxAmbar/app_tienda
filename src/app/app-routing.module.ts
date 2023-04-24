@@ -33,7 +33,7 @@ const routes: Routes = [
     path: 'lista-productos/formulario', component: FormularioComponent,
   },
   {
-    path: 'carrito', component: CarritoComponent,
+    path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard]
   },
   {
     path: 'carrito/envio' , component: FormularioEnvioComponent,
