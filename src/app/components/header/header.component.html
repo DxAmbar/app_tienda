@@ -39,9 +39,9 @@
             </ul>
 
 
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-buscar" type="submit">
+            <form [formGroup]="form" class="d-flex" role="search">
+                <input  name="searchParam" formControlName="searchParam"  class="form-control me-2" placeholder="Search" aria-label="Search" [(ngModel)]="searchParam" />
+                <button class="btn btn-buscar" type="submit" (click)="searchProducts()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-search" viewBox="0 0 16 16">
                         <path

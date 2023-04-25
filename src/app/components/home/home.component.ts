@@ -8,45 +8,50 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   category: string | undefined;
+  search: string | undefined;
 
-  @Input() productos : Productos[] = [];
- 
+  @Input() productos: Productos[] = [];
 
-    constructor(
-      private productoService: ListaProductosService,
-      private route: ActivatedRoute)
-      {}
 
-    ngOnInit(): void {
-      this.route.queryParams
+  constructor(
+    private productoService: ListaProductosService,
+    private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.queryParams
       .subscribe(params => {
-        this.category = params['category']; 
+        this.category = params['category'];
+        this.search = params['search'];
         this.getProductos();
       }
-    );
-    }
-  
-    getProductos() : void{
-      this.productoService.getProductos().subscribe(
-        (data) => {
-          console.log(this.category)
-          if(this.category){
-            this.productos = data.products.filter((p:any) => p.category.toUpperCase() === this.category?.toUpperCase())
-          }else {
-          this.productos = data.products
+      );
+  }
+
+  getProductos(): void {
+    this.productoService.getProductos().subscribe(
+      (data) => {
+        if (this.search) {
+          console.log({ productos: this.productos, search: this.search })
+          this.productos = data.products.filter((producto: any) => producto.name.toUpperCase().includes((this.search || "").toUpperCase()));
+        } else {
+          if (this.category) {
+            this.productos = data.products.filter((p: any) => p.category.toUpperCase() === this.category?.toUpperCase())
+          } else {
+            this.productos = data.products
           }
         }
-      )
-    }
+      }
+    )
+  }
 
-    addToCart(producto: Productos) {
-      return this.productoService.addProductos(producto);
-    }
+  addToCart(producto: Productos) {
+    return this.productoService.addProductos(producto);
+  }
 
-    
-    
+
+
 
 }
