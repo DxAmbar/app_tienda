@@ -1,48 +1,67 @@
 <div class="container mt-4">
-    <div class="productCart" *ngFor="let producto of myCart$ | async">
-        <div class="card-title">
-            <p>{{producto.name}}</p>
-            <div class="productCart-body-info">
-                <p>Precio unitario: $ {{producto.price}}</p>
-                <p>Cantidad: {{producto.amount}}</p>
-            </div>
-        </div>
-        <div class="productCart-total">
-            <p>Total: ${{totalProducto(producto.price, producto.amount)}}</p>
-        </div>
-        <div class="container">
-            <div class="row align-items-start">
-                <div class="col">
-                    <button class="cart-btn minus" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        (click)="updateUnits('minus', producto.idProduct)">
-                        <span class="fs-5">
-                            <fa-icon [icon]="faMinus"></fa-icon>
-                        </span>
-                    </button>
-                </div>
-                <div class="col">
-                    <span>{{producto.amount}}</span>
-                </div>
-                <div class="col">
-                    <button class="cart-btn add" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                        (click)="updateUnits('add', producto.idProduct)">
-                        <span class="fs-5">
-                            <fa-icon [icon]="faPlus"></fa-icon>
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <button type="button" class="btn btn-danger" (click)="deleteProducto(producto.idProduct)">
-                <span class="fs-5">
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                </span>
-            </button>
-        </div>
+  <div
+    class="productCart card card-body"
+    *ngFor="let producto of myCart$ | async"
+  >
+    <div class="card-title">
+      <p>{{ producto.name }}</p>
+      <div class="productCart-body-info">
+        <p>Precio unitario: $ {{ producto.price }}</p>
+        <p>Cantidad: {{ producto.amount }}</p>
+      </div>
     </div>
-    <div class="cartTotal">
-        <p class="cartTotal-total">Total compra: $ {{totalCart()}}</p>
+    <div class="productCart-total">
+      <p>Total: ${{ totalProducto(producto.price, producto.amount) }}</p>
     </div>
-    <button type="button" class="btn btn-outline-warning">Seguir comprando</button>
-    <button type="button" class="btn btn-success" routerLink="/carrito/envio">Pagar</button>
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col">
+          <button
+            class="cart-btn minus"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            (click)="updateUnits('minus', producto.idProduct)"
+          >
+            <span class="fs-5">
+              <fa-icon [icon]="faMinus"></fa-icon>
+            </span>
+          </button>
+        </div>
+        <div class="col">
+          <span>{{ producto.amount }}</span>
+        </div>
+        <div class="col">
+          <button
+            class="cart-btn add"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            (click)="updateUnits('add', producto.idProduct)"
+          >
+            <span class="fs-5">
+              <fa-icon [icon]="faPlus"></fa-icon>
+            </span>
+          </button>
 
+          <button
+            type="button"
+            class="btn btn-danger trash"
+            (click)="deleteProducto(producto.idProduct)"
+          >
+            <span class="fs-5">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cartTotal">
+    <p class="cartTotal-total">Total compra: $ {{ totalCart() }}</p>
+  </div>
+  <button type="button" class="btn btn-outline-warning">
+    Seguir comprando
+  </button>
+  <button type="button" class="btn btn-success" routerLink="/carrito/envio">
+    Pagar
+  </button>
 </div>
