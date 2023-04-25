@@ -6,10 +6,10 @@ import {
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+//import pdfMake from 'pdfmake/build/pdfmake';
+//import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { Productos } from 'src/app/services/productos';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+//pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-carrito',
@@ -71,7 +71,7 @@ export class CarritoComponent implements OnInit {
     return r;
   }
 
-  generarBoleta() {
+  /*generarBoleta() {
     const docDefinition = {
       content: [
         { text: 'Boleta de compra', style: 'header' },
@@ -96,7 +96,7 @@ export class CarritoComponent implements OnInit {
     };
 
     pdfMake.createPdf(docDefinition).open();
-  }
+  }*/
 
   // createPDF() {
   //   const documentDefinition = {
