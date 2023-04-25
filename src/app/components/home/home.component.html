@@ -1,53 +1,113 @@
 <!-- Carrousel de imagenes -->
 <div class="container mt-4">
-    <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3"
-                aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="4"
-                aria-label="Slide 5"></button>
-            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="5"
-                aria-label="Slide 6"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../../../assets/img/banner1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/banner2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/banner3.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/banner4.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/banner1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../../../assets/img/banner2.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+  <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="4"
+        aria-label="Slide 5"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="5"
+        aria-label="Slide 6"
+      ></button>
     </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="../../../assets/img/banner1.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../../../assets/img/banner2.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../../../assets/img/banner3.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../../../assets/img/banner4.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../../../assets/img/banner1.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="../../../assets/img/banner2.jpg"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-    <!-- Tarjetasa productos (Grid) -->
+  <!-- Tarjetasa productos (Grid) -->
 
-    <!--<div class="card-group">
+  <!--<div class="card-group">
         <div class="card ">
           <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card" style="width: 18rem" *ngFor="let producto of productos">
@@ -62,21 +122,25 @@
           </div>
       </div> -->
 
-
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2">
-            
-          <div class="card" style="width: 14rem" *ngFor="let producto of productos">
-                <img class="card-img-top" [src]="producto.image" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{producto.name}}</h5>
-                    <p class="card-text">{{producto.price | currency:'CLP':'symbol'}}</p>
-                    <button type="button" class="btn btn-primary" (click)="addToCart(producto)"><i
-                            class="bi bi-cart-plus-fill"> Agregar al carrito</i></button>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="card" style="width: 14rem" *ngFor="let producto of productos">
+        <img class="card-img-top" [src]="producto.image" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ producto.name }}</h5>
+          <p class="card-text">
+            {{ producto.price | currency : "CLP" : "symbol" }}
+          </p>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="addToCart(producto)"
+            (click)="showModal()"
+          >
+            <i class="bi bi-cart-plus-fill"> Agregar al carrito</i>
+          </button>
         </div>
+      </div>
     </div>
-
-
+  </div>
 </div>
