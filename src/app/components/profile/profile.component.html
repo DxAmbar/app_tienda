@@ -1,21 +1,29 @@
-
-<div *ngIf="auth.user$ | async as user">
-    <div class="row align-items-center profile-header">
-      <div class="col-md-2 mb-3">
-        <img
-          [src]="user.picture"
-          alt="User's profile picture"
-          class="rounded-circle img-fluid profile-picture"
-        />
-      </div>
-      <div class="col-md text-center text-md-left">
-        <h2>{{ user.name }}</h2>
-        <p class="lead text-muted">{{ user.email }}</p>
-      </div>
+<div class="container my-4" *ngIf="auth.user$ | async as user">
+  <div class="row align-items-center profile-header">
+    <div class="col-md-2 mb-3">
+      <img [src]="user.picture" alt="User's profile picture" class="rounded-circle img-fluid profile-picture" />
     </div>
-  
-    <div class="row" *ngIf="profileJson">
-      <pre class="col-12 text-light bg-dark p-4">{{ profileJson }}</pre>
-    </div>
+    <div class="row">
+      <div class="col mb-2">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" #email="ngModel" [ngModel]="user.email" class="form-control form-control-sm">
+      </div>
+      <div class="col mb-2">
+          <label for="nickname" class="form-label">Usuario</label>
+          <input type="text" id="nickname" name="nickname" #nickname="ngModel" [ngModel]="user.nickname" class="form-control form-control-sm">
+      </div>
+      <div class="col mb-2">
+          <label for="updated_at" class="form-label">Ultimo acceso</label>
+          <input type="text" id="updated_at" name="updated_at" #updated_at="ngModel" [ngModel]="user.updated_at | date: 'long'" class="form-control form-control-sm">
+      </div>
   </div>
 
+    <!-- <div class="col-md text-center text-md-left">
+      <h2>{{ user.name }}</h2>
+      <p class="lead text-muted">{{ user.email }}</p>
+    </div>
+  </div>
+  <div class="row" *ngIf="profileJson">
+    <pre class="col-12 text-light bg-dark p-4">{{ profileJson }}</pre>
+  </div> -->
+</div>

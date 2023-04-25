@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
     this.productoService.getProductos().subscribe(
       (data) => {
         if (this.search) {
-          console.log({ productos: this.productos, search: this.search })
           this.productos = data.products.filter((producto: any) => producto.name.toUpperCase().includes((this.search || "").toUpperCase()));
         } else {
           if (this.category) {
