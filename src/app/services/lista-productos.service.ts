@@ -8,13 +8,12 @@ import { CartItem } from './cartItem';
 import { Cart } from './cart';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ListaProductosService {
+  private urlEndPoint: string = 'http://localhost:8080/api/products';
 
-  private urlEndPoint: string = 'http://localhost:8080/api/products'
-
-  private httpHeaders = new HttpHeaders({'content-type': 'application/json'})
+  private httpHeaders = new HttpHeaders({ 'content-type': 'application/json' });
 
   //Lista carrito
   private myList: Productos[] = [];
@@ -23,14 +22,14 @@ export class ListaProductosService {
   private myCart = new BehaviorSubject<Productos[]>([]);
   myCart$ = this.myCart.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  getProductos(): Observable<any>{
+  getProductos(): Observable<any> {
     return this.http.get<any>(this.urlEndPoint).pipe(
-      catchError(e => {
+      catchError((e) => {
         this.router.navigate([`/lista-productos`]);
         console.error(e.error.mensaje);
-        return throwError( () => {
+        return throwError(() => {
           const error: any = new Error(e.error.mensaje);
           return error;
         });
@@ -39,19 +38,18 @@ export class ListaProductosService {
   }
 
   addProductos(producto: Productos) {
-
-    if(this.myList.length === 0) {
+    if (this.myList.length === 0) {
       producto.amount = 1;
-      this.myList.push(producto)
+      this.myList.push(producto);
       this.myCart.next(this.myList);
-    }else{
+    } else {
       const productMod = this.myList.find((element) => {
-        return element.idProduct === producto.idProduct
-      })
-      if(productMod){
+        return element.idProduct === producto.idProduct;
+      });
+      if (productMod) {
         productMod.amount = productMod.amount + 1;
         this.myCart.next(this.myList);
-      }else{
+      } else {
         producto.amount = 1;
         this.myList.push(producto);
         this.myCart.next(this.myList);
@@ -59,29 +57,33 @@ export class ListaProductosService {
     }
   }
 
-  deleteProducto(idProduct:number){
-    this.myList = this.myList.filter((producto)=>{
-      return producto.idProduct != idProduct
-    })
+  deleteProducto(idProduct: number) {
+    this.myList = this.myList.filter((producto) => {
+      return producto.idProduct != idProduct;
+    });
     this.myCart.next(this.myList);
   }
 
-  findProductById(idProduct:number) {
+  findProductById(idProduct: number) {
     return this.myList.find((element) => {
       return element.idProduct === idProduct;
-
-    })
+    });
   }
 
-  totalCart(){
-    const total = this.myList.reduce(function (acc, producto){
-      return acc + (producto.amount * producto.price);},0)
-      return total;
+  totalCart() {
+    const total = this.myList.reduce(function (acc, producto) {
+      return acc + producto.amount * producto.price;
+    }, 0);
+    return total;
+  }
+
+  totalCompra() {
+    return this.myList.reduce((total, producto) => total + producto.amount, 0);
   }
 
   getProduct(id: number): Observable<any> {
     return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
-      catchError(e => {
+      catchError((e) => {
         this.router.navigate([`/lista-productos`]);
         console.error(e.error.mensaje);
         Swal.fire(e.error.mensaje, e.error.error, 'error');
@@ -93,58 +95,51 @@ export class ListaProductosService {
     );
   }
 
-  createProduct(producto: Productos) : Observable<any> {
-    return this.http.post(this.urlEndPoint, producto, { headers : this.httpHeaders}).pipe(
-      map((response: any) => response.producto as Productos),
-      catchError(e => {
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(() => {
-          const error: any = new Error(e.error.mensaje);
-          return error;
-        });
-      })
-    )
+  createProduct(producto: Productos): Observable<any> {
+    return this.http
+      .post(this.urlEndPoint, producto, { headers: this.httpHeaders })
+      .pipe(
+        map((response: any) => response.producto as Productos),
+        catchError((e) => {
+          console.error(e.error.mensaje);
+          Swal.fire(e.error.mensaje, e.error.error, 'error');
+          return throwError(() => {
+            const error: any = new Error(e.error.mensaje);
+            return error;
+          });
+        })
+      );
   }
 
-  updateProduct(producto: Productos) : Observable<any> {
-    return this.http.put(`${this.urlEndPoint}/${producto.idProduct}`,producto, { headers : this.httpHeaders }).pipe(
-      catchError(e => {
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(() => {
-          const error: any = new Error(e.error.mensaje);
-          return error;
-        });
+  updateProduct(producto: Productos): Observable<any> {
+    return this.http
+      .put(`${this.urlEndPoint}/${producto.idProduct}`, producto, {
+        headers: this.httpHeaders,
       })
-    );
+      .pipe(
+        catchError((e) => {
+          console.error(e.error.mensaje);
+          Swal.fire(e.error.mensaje, e.error.error, 'error');
+          return throwError(() => {
+            const error: any = new Error(e.error.mensaje);
+            return error;
+          });
+        })
+      );
   }
 
   deleteProduct(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.urlEndPoint}/${id}`,{ headers : this.httpHeaders}).pipe(
-      catchError(e => {
-        console.error(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(() => {
-          const error: any = new Error(e.error.mensaje);
-          return error;
-        });
-      })
-    );
+    return this.http
+      .delete<any>(`${this.urlEndPoint}/${id}`, { headers: this.httpHeaders })
+      .pipe(
+        catchError((e) => {
+          console.error(e.error.mensaje);
+          Swal.fire(e.error.mensaje, e.error.error, 'error');
+          return throwError(() => {
+            const error: any = new Error(e.error.mensaje);
+            return error;
+          });
+        })
+      );
   }
-
-  // addItem(cartItem: CartItem): Observable<any> {
-  //   return(`${this.urlEndPoint}/${Cart}`).pipe(
-  //     catchError(e => {
-  //       this.router.navigate([`/carrito`]);
-  //       console.error(e.error.mensaje);
-  //       Swal.fire(e.error.mensaje, e.error.error, 'error');
-  //       return throwError(() => {
-  //         const error: any = new Error(e.error.mensaje);
-  //         return error;
-  //       });
-  //     })
-  //   );
-  // }
-
 }

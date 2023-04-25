@@ -1,6 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,8 +20,6 @@ import { TruncateStringPicturePipe } from './pipes/truncate-string-picture.pipe'
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es-CL';
 import { ProfileComponent } from './components/profile/profile.component';
-import { SearchProductPipe } from './pipes/search-product.pipe';
-
 
 registerLocaleData(localeES,'es-CL');
 
@@ -40,8 +37,7 @@ registerLocaleData(localeES,'es-CL');
     FormularioComponent,
     RelojComponent,
     TruncateStringPicturePipe,
-    ProfileComponent,
-    SearchProductPipe
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -65,4 +61,5 @@ registerLocaleData(localeES,'es-CL');
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

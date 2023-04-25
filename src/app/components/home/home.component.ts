@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ListaProductosService } from 'src/app/services/lista-productos.service';
 import { Productos } from 'src/app/services/productos';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -46,11 +47,19 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  addToCart(producto: Productos) {
-    return this.productoService.addProductos(producto);
-  }
+    addToCart(producto: Productos) {
+      return this.productoService.addProductos(producto);
+    }
 
+    showModal(){
+      Swal.fire(
+        'Producto agregado al carrito!',
+        '',
+        'success'
+      )
+    }
 
-
+    
+    
 
 }
