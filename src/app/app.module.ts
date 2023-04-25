@@ -20,6 +20,7 @@ import { TruncateStringPicturePipe } from './pipes/truncate-string-picture.pipe'
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es-CL';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 registerLocaleData(localeES,'es-CL');
 
@@ -37,7 +38,8 @@ registerLocaleData(localeES,'es-CL');
     FormularioComponent,
     RelojComponent,
     TruncateStringPicturePipe,
-    ProfileComponent
+    ProfileComponent,
+    PdfComponent,
   ],
   imports: [
     BrowserModule,

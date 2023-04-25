@@ -8,10 +8,12 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaProductosService } from 'src/app/services/lista-productos.service';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-import { Productos } from 'src/app/services/productos';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-formulario-tarjeta',
@@ -101,20 +103,9 @@ export class FormularioTarjetaComponent implements OnInit {
         },
         { text: `Total a pagar: $${this.totalCart()}`, style: 'subheader' },
       ],
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true,
-          margin: [0, 0, 0, 10],
-        },
-        subheader: {
-          fontSize: 14,
-          bold: true,
-          margin: [0, 10, 0, 5],
-        },
-      },
+      
     };
 
-    pdfMake.createPdf(docDefinition).open();
+   pdfMake.createPdf(docDefinition).open();
   }
 }
